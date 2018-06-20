@@ -1,47 +1,55 @@
 ---
-title: test
-date: 2018-06-19 14:31:18
+title: Linux 新增、掛載硬碟
+date: 2018-06-19 14:47:50
 tags:
+thumbnailImage: 55.jpg
+thumbnailImagePosition: left
+coverImage: city-750.jpg
+coverCaption: "A beautiful sunrise"
+coverMeta: out
+coverSize: full
 ---
-# Linux 新增、掛載硬碟
+
 ## 一、新增磁碟
+<!-- more -->
 ### 1. 顯示目前主機上的硬碟
+
 ```
 ls /dev/[sh]d*
 ```
-![step1](image/1.JPG)
+{% asset_img 1.JPG step1 %}
 ### 2. 確認所新增的硬碟資訊<br>
 ```
 fdisk -l /dev/sdb
 ```
-![step2](image/2.JPG)
+{% asset_img 2.JPG step2 %}
 ### 3. 對sdb磁碟進行分割，再輸入"m"獲得說明<br>
 ```
 fdisk /dev/sdb
 ```
-![step3](image/3.JPG)
+{% asset_img 3.JPG step3 %}
 ### 4. 輸入"n"新增分割區，再輸入"p" (硬碟全部只要一個分割區) <br>
-![step4](image/4.JPG)
+{% asset_img 4.JPG step4 %}
 ### 5. 輸入"1"(磁碟代號)，按 Enter (起始磁區使用預設值)，在按 Enter (最後磁區使用預設值)<br>
-![step5](image/5.JPG)
+{% asset_img 5.JPG step5 %}
 ### 6. 輸入"w" (將分割表寫入磁碟後離開)<br>
-![step6](image/6.JPG)
+{% asset_img 6.JPG step6 %}
 ### 7. 對sdb1磁碟做ext4格式化
 ```
 mkfs -t ext4 /dev/sdb1
 ```
-![step7](image/7.JPG)
+{% asset_img 7.JPG step7 %}
 ## 二、掛載磁碟(使用UUID掛載)
 ### 1. 列出所有磁碟的UUID<br>
 ```
 sudo blkid
 ```
-![step7](image/9.JPG)<br>
+{% asset_img 9.JPG step9 %}
 ### 2. 編輯fstab檔案，將要掛載硬碟的UDID填入，編輯後存檔重啟系統後就會自動掛載。
 ```
 vim /etc/fstab
 ```
-![step8](image/10.JPG)<br>
+{% asset_img 10.JPG step10 %}
 
 
 | fstab內容 | 說明 |

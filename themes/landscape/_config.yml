@@ -16,6 +16,10 @@ widgets:
 - tagcloud
 - archive
 - recent_posts
+ about:
+            title: global.about
+            url: /#about
+            icon: question
 
 # display widgets at the bottom of index pages (pagination == 2)
 index_widgets:
